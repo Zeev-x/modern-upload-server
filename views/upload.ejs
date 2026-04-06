@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+
+    <link rel="stylesheet" href="/style/style.css">
+</head>
+
+<body>
+
+<header><%= web_name %></header>
+
+<nav>
+    <div class="nav-logo"><%= title %></div>
+
+    <div class="nav-toggle" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <div class="nav-menu" id="navMenu">
+        <a href="/" class="<%= title === 'Home' ? 'active' : '' %>">Home</a>
+        <a href="/about" class="<%= title === 'About' ? 'active' : '' %>">About</a>
+        <a href="/contact" class="<%= title === 'Contact' ? 'active' : '' %>">Contact</a>
+        <a href="/upload" class="<%= title === 'Upload Files' ? 'active' : '' %>">Upload</a>
+        <a href="/list" class="<%= title === 'File List' ? 'active' : '' %>">File List</a>
+    </div>
+</nav>
+
+<main>
+    <div class="card">
+        <h2><%= title %></h2>
+
+        <div class="upload-container">
+            <form action="/upload" method="post" enctype="multipart/form-data">
+
+                <label for="fileInput" class="drop-zone" id="dropZone">
+                    <input type="file" id="fileInput" name="files" multiple hidden>
+
+                    <div class="drop-text">
+                        <p>📂 Drag & Drop file di sini</p>
+                        <span>atau klik untuk memilih file</span>
+                    </div>
+                </label>
+
+                <div id="fileList" class="file-list"></div>
+
+                <button type="submit" class="upload-btn" id="uploadBtn" disabled>
+                    Upload
+                </button>
+            </form>
+        </div>
+    </div>
+</main>
+
+<footer>
+    © 2026 - Dibuat dengan ❤️ oleh Reyette ✨
+</footer>
+
+<script src="/script/script.js"></script>
+
+</body>
+</html>

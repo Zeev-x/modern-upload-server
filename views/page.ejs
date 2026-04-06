@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style/style.css">
+    <title><%= title %></title>
+</head>
+
+<body>
+
+<header><%= web_name %></header>
+
+<nav>
+    <div class="nav-logo"><%= title %></div>
+
+    <div class="nav-toggle" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <div class="nav-menu" id="navMenu">
+        <a href="/" class="<%= title === 'Home' ? 'active' : '' %>">Home</a>
+        <a href="/about" class="<%= title === 'About' ? 'active' : '' %>">About</a>
+        <a href="/contact" class="<%= title === 'Contact' ? 'active' : '' %>">Contact</a>
+        <a href="/upload" class="<%= title === 'Upload Files' ? 'active' : '' %>">Upload</a>
+        <a href="/list" class="<%= title === 'File List' ? 'active' : '' %>">File List</a>
+    </div>
+</nav>
+
+<main>
+    <div class="card">
+        <!-- <h2><%= title %></h2> -->
+        <div><%- content %></div>
+    </div>
+</main>
+
+<footer>
+    © 2026 - Dibuat dengan ❤️ oleh Reyette ✨
+</footer>
+
+<script src="/script/script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Not Found</title>
+    <link rel="stylesheet" href="/style/style.css">
+
+    <style>
+        .error-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+
+            min-height: 80vh;
+        }
+
+        .error-code {
+            font-size: 6rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #6366f1, #4f46e5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .error-text {
+            font-size: 1.5rem;
+            margin: 10px 0;
+        }
+
+        .error-desc {
+            color: var(--muted);
+            margin-bottom: 20px;
+        }
+
+        .back-btn {
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 999px;
+            background: var(--primary);
+            color: white;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover {
+            background: var(--secondary);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <div class="nav-logo">404 Not Found</div>
+</nav>
+
+<div class="error-container">
+    <div class="error-code">404</div>
+    <div class="error-text">Halaman Tidak Ditemukan</div>
+    <div class="error-desc">Sepertinya kamu nyasar ke halaman yang tidak ada 👀</div>
+
+    <a href="/" class="back-btn">Kembali ke Home</a>
+</div>
+
+<footer>
+    © 2026 - Dibuat dengan ❤️ oleh Reyette ✨
+</footer>
+
+</body>
+</html>

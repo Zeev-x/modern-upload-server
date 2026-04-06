@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style/style.css">
+    <title><%= title %></title>
+</head>
+
+<body>
+
+<header><%= web_name %></header>
+
+<nav>
+    <div class="nav-logo"><%= title %></div>
+
+    <div class="nav-toggle" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <div class="nav-menu" id="navMenu">
+        <a href="/" class="<%= title === 'Home' ? 'active' : '' %>">Home</a>
+        <a href="/about" class="<%= title === 'About' ? 'active' : '' %>">About</a>
+        <a href="/contact" class="<%= title === 'Contact' ? 'active' : '' %>">Contact</a>
+        <a href="/upload" class="<%= title === 'Upload Files' ? 'active' : '' %>">Upload</a>
+        <a href="/list" class="<%= title === 'File List' ? 'active' : '' %>">File List</a>
+    </div>
+</nav>
+
+<main>
+    <div class="card">
+        <form action="/delete" id="deleteForm">
+            <label for="filename">Nama File yang Ingin Dihapus:</label><br>
+            <input type="text" id="filename" name="filename" placeholder="Masukkan nama file..."><br><br>
+            <button type="submit">Hapus File</button>
+        </form>
+    </div>
+</main>
+
+<footer>
+    © 2026 - Dibuat dengan ❤️ oleh Reyette ✨
+</footer>
+
+<script src="/script/script.js"></script>
+
+<script>
+document.getElementById('deleteForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const filename = document.getElementById('filename').value;
+
+    if (!filename) {
+        alert("Masukkan nama file!");
+        return;
+    }
+
+    if (!confirm("Yakin mau hapus file ini?")) return;
+
+    fetch(`/delete`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: `filename=${encodeURIComponent(filename)}`
+    })
+    .then(res => res.json())
+    .then(data => {
+        alert(data.message);
+    })
+    .catch(err => {
+        console.error(err);
+        alert("Gagal menghapus file");
+    });
+});
+</script>
+
+</body>
+</html>
